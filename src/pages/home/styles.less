@@ -28,6 +28,25 @@
     display: flex;
     .home_sideNav{
       width: 300px;
+      background: linear-gradient(#601484,#A02270);
+      .ant-menu{ background: none; color: #fff;}
+      .ant-menu-item-group-title{color: #fff;}
+      .ant-menu-item{
+        position: relative;
+        .anticon{
+          position: absolute;
+          right: 10px;
+          top: 12px;
+        }
+      }
+      .ant-menu-submenu-arrow{ right: 45px; }
+      .icons{position: relative; right: -135px;}
+      .iconss{position: relative; right: -158px;}
+      .ant-menu-submenu{ position: relative; }
+      .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{ background: #722C91;}
+      .ant-menu-item-selected{color: #fff;}
+      .ant-menu-item,.ant-menu-submenu-title:hover{color: #fff;}
+      .link{ color: #fff;}
     }
     .home_main{
       flex: 1;
