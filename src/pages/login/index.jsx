@@ -18,9 +18,8 @@ class Login extends Component {
         this.props.userLogin(values)
         .then( res => {
           if( res.payload.status == 200){
-            console.log(res)
             message.success('登录成功');
-            // this.props.history.push('/login')
+            this.props.history.push('/home')
           }else{
             message.error('账户或密码错误');
           }
