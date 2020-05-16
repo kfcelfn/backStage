@@ -5,15 +5,10 @@ import { Link } from "react-router-dom";
 const { SubMenu } = Menu;
 
 export default class sideNav extends Component {
-  handleClick = e => {
-    console.log('click ', e);
-  };
-
   render() {
     return (
       <div className='home_sideNav'>
         <Menu
-          onClick={this.handleClick}
           defaultSelectedKeys={['6']}
           mode="inline"
           className='menus'
