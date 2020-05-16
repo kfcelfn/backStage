@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import {
-  Form,
-  Input,
-  Icon,
-  Button,
-} from 'antd';
+import { Form, Input, Button, message } from 'antd';
+import { connect } from 'react-redux';
+import { userReg } from '@/actions/login'
 import './styles.less'
 
-export default @Form.create()
+export default @connect( () => { return {} },{
+  userReg 
+})
+
+@Form.create()
 class Reg extends Component {
   state = {
     autoCompleteResult: [],
@@ -17,7 +18,15 @@ class Reg extends Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        this.props.userReg(values)
+          .then( res => {
+            if( res.payload.status == 200){
+              message.success('注册成功');
+              this.props.history.push('/login')
+            }else{
+              message.error('账户已存在');
+            }
+          })
       }
     });
   };

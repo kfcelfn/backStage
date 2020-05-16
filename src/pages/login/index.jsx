@@ -1,19 +1,30 @@
 import React, { Component } from 'react'
-import {
-  Form,
-  Input,
-  Button,
-} from 'antd';
+import { Form, Input, Button, message } from 'antd';
+import { connect } from 'react-redux';
+import { userLogin } from '@/actions/login'
 import './styles.less'
 
-export default @Form.create()
+export default @connect( () => { return {} },{
+  userLogin 
+})
+
+@Form.create()
 class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        this.props.userLogin(values)
+        .then( res => {
+          if( res.payload.status == 200){
+            console.log(res)
+            message.success('登录成功');
+            // this.props.history.push('/login')
+          }else{
+            message.error('账户或密码错误');
+          }
+        })
       }
     });
   };
