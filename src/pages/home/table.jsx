@@ -19,14 +19,17 @@ class extends Component {
   addUser = () => {
     this.props.history.push('/home/form')
   }
+
   render() {
     const { findUsers } = this.props
-    console.log(findUsers)
     const columns = [
       {
         title: 'User',
         dataIndex: 'hospital',
-        key: 'hospital'
+        key: 'hospital',
+        render: text => (
+          <a className='imgs'><img src={text} /></a>
+        ),
       },
       {
         title: 'Name',
@@ -54,6 +57,10 @@ class extends Component {
         ),
       },
     ];
+    const pagination = {
+      pageSize: 5,
+      total: this.props.findUsers.length
+    }
 
     return (
       <div className='main_table'>
@@ -61,7 +68,12 @@ class extends Component {
         <h2>
           Add class .table-striped  <Button type="primary" onClick={this.addUser}>Add User</Button>
         </h2>
-        <Table columns={columns} dataSource={findUsers} rowKey='id' pagination = {false}/>
+        <Table 
+          rowKey='id'
+          columns={columns} 
+          dataSource={findUsers}
+          pagination = {pagination}
+        />
       </div>
     )
   }

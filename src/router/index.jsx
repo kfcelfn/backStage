@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Demo, Login, Reg, Home } from './assembly';
 
 import '@/utils/reset.css'  
-// import '@/utils/rem'
+import '@/utils/rem'
 import '@/index.less';
 
 

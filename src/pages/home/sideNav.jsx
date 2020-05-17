@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const { SubMenu } = Menu;
 
@@ -37,15 +37,15 @@ export default class sideNav extends Component {
           </Menu.Item>
           <Menu.Item key="5">
             <Icon type="calendar" />
-            <Link to='/home/form' className='link'>Form Elements</Link>
+            <NavLink to='/home/form' className='NavLink'>Form Elements</NavLink>
           </Menu.Item>
           <Menu.Item key="6">
             <Icon type="calendar" />
-            <Link to='/home/chart' className='link'>Chart</Link>
+            <NavLink to='/home/chart' className='NavLink'>Chart</NavLink>
           </Menu.Item>
           <Menu.Item key="7">
             <Icon type="calendar" />
-            <Link to='/home/table' className='link'>Table</Link> 
+            <NavLink to='/home/table' className='NavLink'>Table</NavLink> 
           </Menu.Item>
           <SubMenu
             key="sub2"
@@ -58,7 +58,7 @@ export default class sideNav extends Component {
           >   
             <Menu.ItemGroup key="g1">
               <Menu.Item key="8">
-                <Link to='/home/page' className='link'>Blank Page</Link>
+                <NavLink to='/home/page' className='NavLink'>Blank Page</NavLink>
               </Menu.Item>
               <Menu.Item key="9">Login</Menu.Item>
               <Menu.Item key="10">Register</Menu.Item>
