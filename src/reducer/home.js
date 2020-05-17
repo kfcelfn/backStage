@@ -1,7 +1,8 @@
-import { HOME_FIND_USER } from '@/constants/actionTypes';
+import { HOME_FIND_USER, HOME_LIMIT_PAGE } from '@/constants/actionTypes';
 
 const defaultState = {
-  findUser: []
+  findUser: [],
+  limitPage: []
 }
 export default function detail(state = defaultState, action) {
   switch (action.type) {
@@ -10,7 +11,12 @@ export default function detail(state = defaultState, action) {
         ...state, 
         findUser: action.payload.users
       }
- 
+    case HOME_LIMIT_PAGE:
+      return {
+        ...state, 
+        limitPage: action.payload.result.list
+      }
+
     default:
       return state
   }

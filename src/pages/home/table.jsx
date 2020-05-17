@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Divider } from 'antd';
+import { Table, Button } from 'antd';
 import { connect } from 'react-redux';
 import { findUser } from '@/actions/home'
 
@@ -13,8 +13,11 @@ export default @connect( state  => {
 class extends Component {
 
   componentDidMount () {
-    this.props.findUser()
-    
+    this.props.findUser() 
+  }
+
+  addUser = () => {
+    this.props.history.push('/home/form')
   }
   render() {
     const { findUsers } = this.props
@@ -54,6 +57,10 @@ class extends Component {
 
     return (
       <div className='main_table'>
+        <h1>Striped Table</h1>
+        <h2>
+          Add class .table-striped  <Button type="primary" onClick={this.addUser}>Add User</Button>
+        </h2>
         <Table columns={columns} dataSource={findUsers} rowKey='id' pagination = {false}/>
       </div>
     )

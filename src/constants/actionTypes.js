@@ -7,6 +7,8 @@ export const USER_LOGIN = 'USER_LOGIN'
 
 //home
 export const HOME_FIND_USER = 'HOME_FIND_USER'  
+export const HOME_ADD_USER = 'HOME_ADD_USER'  
+export const HOME_LIMIT_PAGE = 'HOME_LIMIT_PAGE'  
 
 
 
