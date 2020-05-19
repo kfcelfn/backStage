@@ -17,11 +17,11 @@ export default class Home extends Component {
           <SideNav />
           <div className='home_main'>
             <Switch>
-              <Route path='/home/chart' component={Chart}/>     
+              <Route path='/home/echart' component={Chart}/>     
               <Route path='/home/page' component={Page}/>      
-              <Route path='/home/Form' component={Form}/>     
+              <Route path='/home/form' component={Form}/>     
               <Route path='/home/table' component={Table}/>
-              <Redirect to='/home/chart' />     
+              <Redirect to='/home/echart' />     
             </Switch>
           </div>
         </section>

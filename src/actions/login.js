@@ -1,21 +1,16 @@
 import { USER_REG, USER_LOGIN } from '@/constants/actionTypes';
-import { post } from '@/utils/request' 
-import api from '@/services/api' 
+import * as request from '@/services' 
 
-const userReg = option => {
+export const userReg = option => {
   return{
     type: USER_REG, 
-    payload: post(api.register, option)
+    payload: request.register(option)
   }
 }
 
-const userLogin = option => {
+export const userLogin = option => {
   return{
     type: USER_LOGIN, 
-    payload: post(api.login, option)
+    payload: request.login(option)
   }
-}
-export {
-  userReg,
-  userLogin,
 }

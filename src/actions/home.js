@@ -1,29 +1,23 @@
 import { HOME_FIND_USER, HOME_ADD_USER, HOME_LIMIT_PAGE } from '@/constants/actionTypes';
-import { post, get } from '@/utils/request' 
-import api from '@/services/api' 
+import * as request from '@/services'
 
-const findUser = option => {
+export const findUser = () => {
   return{
     type: HOME_FIND_USER, 
-    payload: get(api.findUser)
+    payload: request.findUser()
   }
 }
 
-const addUser = option => {
+export const addUser = option => {
   return{
     type: HOME_ADD_USER, 
-    payload: post(api.add, option)
+    payload: request.add(option)
   }
 }
 
-const limitPage = option => {
+export const limitPage = option => {
   return{
     type: HOME_LIMIT_PAGE, 
-    payload: post(api.listWithPage, option)
+    payload: request.listWithPage(option)
   }
-}
-export {
-  findUser,
-  addUser,
-  limitPage,
 }

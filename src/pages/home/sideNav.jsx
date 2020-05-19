@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd';
-import { Link, NavLink } from "react-router-dom";
+import { withRouter } from 'react-router-dom'
 
 const { SubMenu } = Menu;
 
-export default class sideNav extends Component {
+export default @withRouter 
+class sideNav extends Component {
+  onClick = e => {
+    this.props.history.push(e.key)
+  }
+  
   render() {
+    const { pathname } = this.props.location
     return (
       <div className='home_sideNav'>
         <Menu
-          defaultSelectedKeys={['6']}
+          defaultSelectedKeys={[pathname]}
+          selectedKeys={[pathname]}
           mode="inline"
           className='menus'
+          onClick={this.onClick}
         >
           <Menu.Item key="1">
             <Icon type="mail" />
@@ -35,17 +43,17 @@ export default class sideNav extends Component {
             <Icon type="calendar" />
             Icons
           </Menu.Item>
-          <Menu.Item key="5">
+          <Menu.Item key="/home/form">
             <Icon type="calendar" />
-            <NavLink to='/home/form' className='NavLink'>Form Elements</NavLink>
+            <span>Form Elements</span>
           </Menu.Item>
-          <Menu.Item key="6">
+          <Menu.Item key="/home/echart">
             <Icon type="calendar" />
-            <NavLink to='/home/chart' className='NavLink'>Chart</NavLink>
+            <span>Chart</span>
           </Menu.Item>
-          <Menu.Item key="7">
+          <Menu.Item key="/home/table">
             <Icon type="calendar" />
-            <NavLink to='/home/table' className='NavLink'>Table</NavLink> 
+            <span>Table</span>
           </Menu.Item>
           <SubMenu
             key="sub2"
@@ -57,8 +65,8 @@ export default class sideNav extends Component {
             }
           >   
             <Menu.ItemGroup key="g1">
-              <Menu.Item key="8">
-                <NavLink to='/home/page' className='NavLink'>Blank Page</NavLink>
+              <Menu.Item key="/home/page">
+                <span>Blank Page</span>
               </Menu.Item>
               <Menu.Item key="9">Login</Menu.Item>
               <Menu.Item key="10">Register</Menu.Item>
